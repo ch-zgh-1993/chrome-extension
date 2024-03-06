@@ -4,6 +4,7 @@
   "description": "js extension",
   "version": "1.0.0",
   "devtools_page": "devtools.html",
+  "author": "zgh_3231@163.com",
   "icons": {
     "16": "./icon.png"
   },
@@ -16,6 +17,9 @@
   ],
   "action": {
     "default_popup": "./popup/index.html",
-    "default_title": "proxy tools"
+    "default_title": "proxy tools",
+    "default_icon": {
+      "16": "./icon.png"
+    }
   }
 }
