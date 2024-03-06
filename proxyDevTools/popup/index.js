@@ -130,6 +130,9 @@ const initEvent = function () {
     // 更新代理
     proxyTool.updateHeaderRules('x-forwarded-for', config[currentName], 'set')
     showRes.innerText = currentName
+    chrome.storage.local.set({
+      'currentName': currentName
+    })
   }, false)
 }
 
@@ -138,11 +141,22 @@ const closeProxy = async () => {
   await proxyTool.clearHeaderConfig()
   clearLiActive()
   showRes.innerText = '空'
+  chrome.storage.local.set({
+    'currentName': '空'
+  })
+}
+
+function initConfig () {
+  chrome.storage.local.get(['currentName']).then(result => {
+    showRes.innerText = result.currentName || ''
+  })
+
+  document.querySelector('.operate-btn').addEventListener('click', closeProxy, false)
 }
 
 initDom()
 initEvent()
-document.querySelector('.operate-btn').addEventListener('click', closeProxy, false)
+initConfig()
 
 
 

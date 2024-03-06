@@ -10,7 +10,8 @@
   },
   "permissions": [
     "declarativeNetRequest",
-    "declarativeNetRequestFeedback"
+    "declarativeNetRequestFeedback",
+    "storage"
   ],
   "host_permissions": [
     "https://*/*"
